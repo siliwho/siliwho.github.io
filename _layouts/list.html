@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -22,12 +23,14 @@
       .card:hover {
         border-color: #38bdf8;
       }
+      a { text-decoration: none; color: inherit }
     </style>
   </head>
   <body>
     <h2>{{ page.title }}</h2>
+
     <div class="grid">
-      {% for post in page.collection %}
+      {% for post in site.categories.blog %}
       <a href="{{ post.url }}">
         <div class="card">
           <h3>{{ post.title }}</h3>
@@ -37,5 +40,7 @@
       </a>
       {% endfor %}
     </div>
+
   </body>
 </html>
+
