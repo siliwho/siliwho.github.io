@@ -1,7 +1,7 @@
 ---
 layout: post
-title: About
+title: Anant
 permalink: /about/
 ---
 
-hello i am
+I am interested in embedded systems, kernel dev, cybersec.
