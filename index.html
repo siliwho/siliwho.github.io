@@ -3,10 +3,24 @@ layout: default
 title: Home
 ---
 
-# Welcome to my Documentary
-This is where I document my progress in RISCV and Kernel development.
+<section>
+  <h1>Welcome to my Documentary</h1>
+  <p>
+    This is where I document my progress in <strong>RISC-V</strong>,
+    <strong>Kernel Development</strong>, and <strong>Embedded Systems</strong>.
+  </p>
+</section>
 
-### Quick Links
-* [Read my Blog](/blog/)
-* [Check my Notes](/notes/)
-* [About Me](/about/)
+<hr style="margin: 2rem 0; opacity: 0.2" />
+
+### Quick Links * 📝 **[Read my Blog](/blog/)** — Daily updates and deep dives.
+* 📓 **[Check my Notes](/notes/)** — Technical references and cheat sheets. * 👤
+**[About Me](/about/)** — My background and interests. ### Recent Activity
+<ul>
+  {% for post in site.posts limit:3 %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <small style="opacity: 0.6">({{ post.date | date: "%b %d, %Y" }})</small>
+  </li>
+  {% endfor %}
+</ul>
