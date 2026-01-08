@@ -3,24 +3,44 @@ layout: default
 title: Home
 ---
 
-<section>
-  <h1>Welcome to my Documentary</h1>
-  <p>
-    This is where I document my progress in <strong>RISC-V</strong>,
-    <strong>Kernel Development</strong>, and <strong>Embedded Systems</strong>.
-  </p>
-</section>
+<pre
+  style="
+    border: none;
+    background: none;
+    color: var(--accent);
+    font-weight: bold;
+  "
+>
+    ___ _   _  _   _  _ _____ 
+   / _ \ \ | |/ \ | \| |_   _|
+  / /_\ \ \| / _ \| . ` | | |  
+ / /   \ \ |\ / _ \ | \ | | |  
+ \/     \/_| \_/ \_/ \_| |_|  
+</pre>
 
-<hr style="margin: 2rem 0; opacity: 0.2" />
+<p><span class="prompt">guest@terminal:~$</span> locate anant</p>
+<p>Searching system for "Anant Gyan Singhal"...</p>
 
-### Quick Links * 📝 **[Read my Blog](/blog/)** — Daily updates and deep dives.
-* 📓 **[Check my Notes](/notes/)** — Technical references and cheat sheets. * 👤
-**[About Me](/about/)** — My background and interests. ### Recent Activity
-<ul>
-  {% for post in site.posts limit:3 %}
+<div style="border: 1px solid #333; padding: 20px; border-radius: 5px">
+  <p><strong>Current Status:</strong> Learning RISC-V & Embedded Linux</p>
+  <p><strong>Location:</strong> ~/Projects/documentary</p>
+</div>
+
+<h3 style="margin-top: 2rem">System Navigation:</h3>
+<ul class="file-list">
   <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <small style="opacity: 0.6">({{ post.date | date: "%b %d, %Y" }})</small>
+    <span class="prompt">dir</span>
+    <a href="/posts/">Technical Posts</a> (In-depth articles)
   </li>
-  {% endfor %}
+  <li>
+    <span class="prompt">dir</span> <a href="/daily/">Daily Blogs</a> (Quick
+    status updates)
+  </li>
+  <li>
+    <span class="prompt">dir</span>
+    <a href="/notes/">Research Notes</a> (Reference material)
+  </li>
+  <li>
+    <span class="prompt">dir</span> <a href="/about/">Research Notes</a> (about)
+  </li>
 </ul>

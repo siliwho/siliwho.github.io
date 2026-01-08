@@ -1,12 +1,16 @@
 ---
 layout: default
-title: Blog
-permalink: /blog/
+title: Technical Posts
+permalink: /posts/
 ---
 
-# Blog Posts {% for post in site.posts %}
-<article>
-  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <small>{{ post.date | date_to_string }}</small>
-</article>
-{% endfor %}
+<h1><span class="prompt">~/posts $</span> ls -la</h1>
+
+<ul class="file-list">
+  {% for post in site.posts %}
+    <li>
+      <span style="color: var(--prompt)">drwxr-xr-x</span> 
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

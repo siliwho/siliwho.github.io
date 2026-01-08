@@ -26,6 +26,9 @@ url: "https://siliwho.github.io"
 
 # Collections for organization
 collections:
+  daily:
+    output: true
+    permalink: /daily/:path/
   notes:
     output: true
     permalink: /notes/:path/
