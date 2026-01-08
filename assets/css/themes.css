@@ -54,10 +54,37 @@ body {
 }
 
 /* Main Content Wrapper */
-.container {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 40px 20px;
+/* Fix the strange blue boxes/overlapping from your screenshot */
+.container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.container li {
+  margin-bottom: 10px;
+  border: none !important; /* Removes ghost borders from old themes */
+  background: transparent !important; /* Removes ghost backgrounds */
+}
+
+/* Ensure code blocks don't inherit strange padding or margins */
+pre,
+code {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--accent);
+  padding: 15px !important;
+  margin: 10px 0 !important;
+  background-color: var(--code-bg) !important;
+  color: var(--fg) !important;
+  box-shadow: none !important; /* Removes shadow if any old theme added it */
+}
+
+/* Fix inline code so it doesn't look like a giant block */
+p code,
+li code {
+  display: inline;
+  padding: 2px 5px !important;
+  border: none;
 }
 
 h1,

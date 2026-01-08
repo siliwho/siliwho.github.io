@@ -20,5 +20,6 @@ Run the following in the source directory:
 
 ```bash
 make menuconfig
+
 make -j$(nproc)
 ```
