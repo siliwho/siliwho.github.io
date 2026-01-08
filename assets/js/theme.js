@@ -1,5 +1,4 @@
-const themes = ["github-dark", "tokyonight", "gruvbox"];
-let current = 0;
+const themes = ["github-light", "github-dark", "tokyonight", "gruvbox"];
 
 function setTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
@@ -7,8 +6,10 @@ function setTheme(theme) {
 }
 
 function toggleTheme() {
-  current = (current + 1) % themes.length;
-  setTheme(themes[current]);
+  const current = localStorage.getItem("theme") || "github-light";
+  let index = themes.indexOf(current);
+  index = (index + 1) % themes.length;
+  setTheme(themes[index]);
 }
 
 // Load saved theme
@@ -17,4 +18,3 @@ if (saved) {
   setTheme(saved);
   current = themes.indexOf(saved);
 }
-
