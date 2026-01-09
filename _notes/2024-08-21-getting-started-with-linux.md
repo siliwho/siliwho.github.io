@@ -23,3 +23,5 @@ make menuconfig
 
 make -j$(nproc)
 ```
+
+![img](../images/kernel_menuconfig.png)
