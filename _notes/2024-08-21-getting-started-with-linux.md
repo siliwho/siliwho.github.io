@@ -24,4 +24,4 @@ make menuconfig
 make -j$(nproc)
 ```
 
-![img](../images/kernel_menuconfig.png)
+![img]({{ '/images/kernel_menuconfig.png' | relative_url }})
