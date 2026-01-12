@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "First Blog"
-category: notes
+date: 2026-01-11
 ---
 
 # ~/daily_blogs/First_blog.md
