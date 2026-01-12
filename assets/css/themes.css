@@ -139,3 +139,38 @@ button#theme-toggle {
   font-weight: bold;
   margin-left: auto;
 }
+
+/* Tree/Dropdown Styling */
+.tree-container {
+  margin-top: 20px;
+}
+
+.directory {
+  margin-bottom: 10px;
+}
+
+.directory summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 5px;
+  user-select: none;
+  font-weight: bold;
+}
+
+.directory summary::-webkit-details-marker {
+  display: none;
+}
+
+.directory summary:hover {
+  background: var(--code-bg);
+}
+
+.folder-icon {
+  margin-right: 10px;
+}
+
+/* Optional: Add a vertical line for the tree structure */
+.file-list {
+  list-style: none;
+  margin: 5px 0;
+}
