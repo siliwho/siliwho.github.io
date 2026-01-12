@@ -4,12 +4,31 @@ title: Technical Notes
 permalink: /notes/
 ---
 
-<h1><span class="prompt">~/notes $</span> tree -F</h1>
+<h1><span class="prompt">~/notes $</span> ls -R</h1>
 
 <div class="tree-container">
+  
+  <div class="root-files" style="margin-bottom: 20px;">
+    <ul class="file-list">
+      {% for note in site.notes %}
+        {% assign path_parts = note.path | split: "/" %}
+        {% if path_parts.size == 2 %}
+          <li>
+            <span class="prompt">├──</span>
+            <a href="{{ note.url | relative_url }}">{{ note.title | default: note.path }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
   {% assign notes_by_dir = site.notes | group_by_exp: "item", "item.path | split: '/' | slice: 1" %}
 
   {% for dir in notes_by_dir %}
+    {% if dir.name contains ".md" or dir.name == "" %}
+      {% continue %}
+    {% endif %}
+
     <details class="directory" open>
       <summary class="prompt">
         <span class="folder-icon">📁</span> {{ dir.name }} /
