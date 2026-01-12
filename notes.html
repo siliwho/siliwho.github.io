@@ -31,7 +31,7 @@ permalink: /notes/
 
     <details class="directory" open>
       <summary class="prompt">
-        <span class="folder-icon">📁</span> {{ dir.name }} /
+        <span class="folder-icon"> </span> {{ dir.name }} /
       </summary>
       <ul class="file-list" style="margin-left: 20px; border-left: 1px dashed var(--accent); padding-left: 15px;">
         {% for note in dir.items %}
@@ -47,7 +47,7 @@ permalink: /notes/
   {% assign pdfs = site.static_files | where_exp: "item", "item.path contains '/_notes/'" %}
   {% if pdfs.size > 0 %}
     <details class="directory">
-      <summary class="prompt"><span class="folder-icon">📂</span> binaries /</summary>
+      <summary class="prompt"><span class="folder-icon"></span> binaries /</summary>
       <ul class="file-list" style="margin-left: 20px; border-left: 1px dashed var(--accent); padding-left: 15px;">
         {% for file in pdfs %}
           {% if file.extname == '.pdf' %}
