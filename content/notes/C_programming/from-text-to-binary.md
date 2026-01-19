@@ -1,9 +1,6 @@
 ---
-layout: default
-title: "From text to binary"
+tags: [pointers, memory, hardware]
 ---
-
-<span class="prompt">anant@dev:~$</span> cat {{ page.path | split: "/" | last }}
 
 ## How to convert the code to binary
 
