@@ -24,4 +24,4 @@ make menuconfig
 make -j$(nproc)
 ```
 
-![img](https://github.com/siliwho/siliwho.github.io/blob/main/images/kernel_menuconfig.png)
+![img](../assets/kernel_menuconfig.png)
