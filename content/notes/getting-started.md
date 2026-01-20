@@ -21,7 +21,7 @@ Run the following in the source directory:
 ```bash
 make menuconfig
 
-make -j$(nproc)
+make -j$(nproc) #this gives all the cores to process
 ```
 
 ![img](../assets/kernel_menuconfig.png)
