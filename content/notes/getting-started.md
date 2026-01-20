@@ -26,4 +26,4 @@ make menuconfig
 make -j$(nproc) #this gives all the cores to process
 ```
 
-![img](../assets/kernel_menuconfig.png)
+![Kernel Menuconfig](https://raw.githubusercontent.com/siliwho/documentry/main/content/assets/kernel_menuconfig.png)
