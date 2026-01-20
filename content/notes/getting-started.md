@@ -6,6 +6,8 @@ category: notes
 
 # ~/notes/kernel-compilation.md
 
+Hello i added this 
+
 ## 1. Prerequisites
 
 Install the following packages before starting:
