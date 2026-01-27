@@ -58,3 +58,5 @@ after this i entered `c` to continue the program uninterepted
 
 ![final output](image-4.png)
 from this we can see that the register x3 or gp is set to `0x0000000a` which is 10 in decimal (thats what we wanted) and the *pc* is set to `0x80000018` which is the last line of that code.
+
+>NOTE: To exit qemu press first ctrl+a then x 
