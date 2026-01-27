@@ -1,9 +1,6 @@
 ---
-layout: default
-title: "From text to binary"
+tags: [pointers, memory, hardware]
 ---
-
-<span class="prompt">anant@dev:~$</span> cat {{ page.path | split: "/" | last }}
 
 ## How to convert the code to binary
 
@@ -115,3 +112,19 @@ Explanation of Each Argument
     - Loaded into QEMU
     - Debugged using GDB
     - Converted to raw binary using `objcopy`
+
+### RISC-V Reference Card
+
+Details of the RISC-V 32i Instruction Encoding: [Download the PDF](https://github.com/jameslzhu/riscv-card/releases/download/latest/riscv-card.pdf)
+
+### Tools
+
+1. [RISC-V Instruction Decoder](https://luplab.gitlab.io/rvcodecjs/)
+1. [GDB Dashboard](https://github.com/cyrus-and/gdb-dashboard)
+1. [Assembler (as) Documentation](https://ftp.gnu.org/old-gnu/Manuals/gas/html_chapter/as_7.html)
+   1. [Document for RISC-V Assembler](https://sourceware.org/binutils/docs-2.31/as/RISC_002dV_002dDirectives.html)
+
+### C
+
+1. [ISO Standard](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
+1. [GNU C Manual](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf)

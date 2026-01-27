@@ -6,6 +6,8 @@ category: notes
 
 # ~/notes/kernel-compilation.md
 
+Hello i added this 
+
 ## 1. Prerequisites
 
 Install the following packages before starting:
@@ -21,7 +23,8 @@ Run the following in the source directory:
 ```bash
 make menuconfig
 
-make -j$(nproc)
+make -j$(nproc) #this gives all the cores to process
 ```
 
-![img]({{ '/images/kernel_menuconfig.png' | relative_url }})
+![Kernel Menuconfig](../assets/kernel_menuconfig.png)
+
