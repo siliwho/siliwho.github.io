@@ -5,6 +5,7 @@ I am converting the main.c to assembly:
 ```c
 int siliwho() { return 3; }
 ```
+
 below is the makefile
 
 ```c
@@ -31,13 +32,11 @@ clean:
 
 so in the **assembly** section of the above makefile we added, we say the gcc generate the assembly code from main.c and put it in _main.s_, do nothing more nothing less.
 
-
-
-![alt text](image-5.png)
+![alt text](../src/image-5.png)
 
 the line `riscv64-unknown-elf-gcc -O0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -Wl,-Tmain.ld main.c -S` resulted in this large assembly but most of the content in the assembly file are atttributes(this is because of -ggdb flag(this integrates binary so that we can work with gdb)).
 
->attribute: 
+> attribute:
 
 so i removed this flag and the resulting assembly is smaller then previous one.
 
@@ -103,4 +102,3 @@ awb: main.c m.s
 	riscv64-unknown-elf-gcc -O0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -Wl -Tmain.ld m.s main.c -o main.elf
 	riscv64-unknown-elf-objcopy -O binary main.elf main.bin
 ```
-
