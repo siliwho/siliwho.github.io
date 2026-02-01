@@ -42,23 +42,23 @@ SECTIONS
 
 ```
 
-![stoped at first line](../src/image.png)
+![stoped at first line](../../assets/image.png)
 
 - so as we can see from both the gdb screenshot and linkerscript the starting address of code is starting from **0x80000000**.
 - also, there is an exclaimation mark left of the line below _\_start_ that means after starting the gdb it stoped at the mark.
 - in the **Assembly** section we can see that their is no `x1` , `x2` or any reg int the code above or as well in the **Source** section because of this
 
-![reference card](../src/image-2.png)
+![reference card](../../assets/image-2.png)
 
 from the card we can see that register name are aliased to somethign called _ABI name_.
 
-![next line](../src/image-1.png)
+![next line](../../assets/image-1.png)
 
 now, when i entered `ni` in the command line it executes the next line from the screenshot we can see the cvalue of registers:
 
 - pc changed from **0x80000000** to **0x80000004** (increment of 4 byte(32 bit instruction)) and the `ra` value updated to 2
 
-![alt text](../src/image-3.png)
+![alt text](../../assets/image-3.png)
 
 what i did is i typed ni till the program enters in the loop so all the values of the registes are updated as it should be - 2, 5, 0
 
@@ -66,7 +66,7 @@ what i did is i typed ni till the program enters in the loop so all the values o
 
 after this i entered `c` to continue the program uninterepted
 
-![final output](../src/image-4.png)
+![final output](../../assets/image-4.png)
 from this we can see that the register x3 or gp is set to `0x0000000a` which is 10 in decimal (thats what we wanted) and the _pc_ is set to `0x80000018` which is the last line of that code.
 
 > NOTE: To exit qemu press first ctrl+a then x
