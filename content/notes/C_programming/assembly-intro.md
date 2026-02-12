@@ -8,7 +8,7 @@ int siliwho() { return 3; }
 
 below is the makefile
 
-```c
+```makefile
 assembly: main.c
 	riscv64-unknown-elf-gcc -O0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -Wl,-Tmain.ld main.c -S
 
@@ -32,7 +32,7 @@ clean:
 
 so in the **assembly** section of the above makefile we added, we say the gcc generate the assembly code from main.c and put it in _main.s_, do nothing more nothing less.
 
-![alt text](../src/image-5.png)
+![alt text](../../assets/image-5.png)
 
 the line `riscv64-unknown-elf-gcc -O0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -Wl,-Tmain.ld main.c -S` resulted in this large assembly but most of the content in the assembly file are atttributes(this is because of -ggdb flag(this integrates binary so that we can work with gdb)).
 
@@ -69,7 +69,7 @@ siliwho:
 this removes major attributes of the program.
 
 Now, we know that if i want to execute a simple c code, it wouldnt run if there is no `int main()` in it because OS searches for `_start` in the assembly of the c file, but in the above code i wrote `int siliwho()` instead.
-to solve that i will make a **m.s** that will tell gcc to compile and links m.s (assembly) + main.c (C)
+to solve that i will make a **m.s** that will tell gcc to jump to a lable, that is `siliwho`
 
 So, in previous notes [Intro to GDB](./gdb-intro.md) I made on assembly file:
 
@@ -86,7 +86,7 @@ j .
 
 ```
 
-so in this i am replace all the content to jump to a lable, that is `siliwho`:
+so in this i am replace all the content to `j siliwho` that will tell it to jump to it:
 
 ```c
 _start:
@@ -95,10 +95,18 @@ _start:
 j .
 ```
 
-and this is the compilation command
+and this is the compilation command that will tell gcc to compile and links m.s (assembly) + main.c (C)
 
-```c
+```makefile
 awb: main.c m.s
 	riscv64-unknown-elf-gcc -O0 -ggdb -nostdlib -march=rv32i -mabi=ilp32 -Wl -Tmain.ld m.s main.c -o main.elf
 	riscv64-unknown-elf-objcopy -O binary main.elf main.bin
 ```
+
+![image after proceeding one time](image-6.png)
+
+after entering `ni` one time we can see the code jumped to the `int siliwho()`
+
+![alt text](image.png)
+
+and this failed because 
