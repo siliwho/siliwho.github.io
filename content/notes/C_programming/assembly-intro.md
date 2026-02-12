@@ -103,10 +103,82 @@ awb: main.c m.s
 	riscv64-unknown-elf-objcopy -O binary main.elf main.bin
 ```
 
-![image after proceeding one time](image-6.png)
+![image after proceeding one time](image-1.png)
 
 after entering `ni` one time we can see the code jumped to the `int siliwho()`
 
-![alt text](image.png)
+![first ni](image-2.png)
 
-and this failed because 
+now, look at the register window carefully:
+
+```c
+sp 0x00000000
+```
+
+Now the first instruction in siliwho:
+```c
+addi sp, sp, -16
+```
+
+That becomes: `sp = 0xFFFFFFF0`
+
+![alt text](image-3.png)
+
+in the next instruction `sw ra, 12(sp)`
+if we compute that address.
+```c
+sp = 0xFFFFFFF0
+12(sp) = 0xFFFFFFF0 + 12
+       = 0xFFFFFFFC
+```
+
+so, the program is writing to `0xFFFFFFFC` which is invalid because this is outside the RAM region.
+We can also see this in the linker script:
+``` c
+RAM ORIGIN = 0x80000000, LENGTH = 4K
+```
+which means valid RAM size is from **0x80000000** to **0x80001000**
+
+![alt text](image-4.png)
+
+thats why this results to cant access the address `0x0`.
+
+To correct this we can initialize the stack pointer with some value like `0x80001000`
+
+after updating the `m.s` and executing it till the last instruction.
+![alt text](image-5.png)
+
+from this we can see there is nothing in front of return
+```c
+0x80000030  siliwho+36 ret
+```
+so when i go to next inst. it fails because in assembly program i wrote it to directly jump to `siliwho` so it doesnt have return address, to correct it i will change the *m.s* to 
+```js
+_start:
+    li sp, 0x80001000
+    jal siliwho
+
+j .
+```
+
+
+When I started GDB and executed `ni` (next instruction), it executed the entire function `siliwho` and returned to `_start`.
+
+We can see that register **a5** is updated to **3**, which matches the return value of the function:
+![alt text](image-7.png)
+
+
+This happens because `ni` treats a function call (`jal`) as a single instruction and executes the whole function before moving to the next instruction (in this case, `j .`).
+
+If we want to step into `siliwho` and execute each instruction one by one, we should use:
+
+```
+si
+```
+
+`si` means **step into**, which allows us to enter the function and execute its instructions individually:
+
+![alt text](image-8.png)
+
+we can see i am in the `siliwho()` function now this program is correct as it exits after last instruction.
+
